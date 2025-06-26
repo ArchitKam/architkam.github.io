@@ -1,12 +1,102 @@
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matthew Gwilliam</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-top: 2.5rem;
+      color: #222;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .profile img {
+      width: 150px;
+      border-radius: 8px;
+    }
+    .links {
+      margin-top: 0.5rem;
+    }
+    .paper {
+      margin-bottom: 1.5rem;
+    }
+    .paper-title {
+      font-weight: bold;
+    }
+    .authors {
+      font-style: italic;
+    }
+    .resources a {
+      margin-right: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello from GitHub Pages 👋</h1>
-  <p>This is your first website, hosted for free.</p>
+
+  <div class="profile">
+    <div>
+      <h1>Matthew Gwilliam</h1>
+      <p>I am a fifth year Ph.D student in the department of <a href="#">Computer Science</a> at the University of Maryland (UMD), advised by <a href="#">Professor Abhinav Shrivastava</a>. I am studying computer vision.</p>
+      <p>I completed my B.S. in Computer Science at <a href="#">Brigham Young University</a>, where I was fortunate to work with <a href="#">Professor Ryan Farrell</a>.</p>
+      <p>During my PhD, I have enjoyed opportunities to work as an intern at Amazon, SRI, and NVIDIA.</p>
+      <div class="links">
+        <a href="#">Email</a> / <a href="#">CV</a> / <a href="#">Google Scholar</a>
+      </div>
+    </div>
+    <img src="profile.jpg" alt="Matthew Gwilliam">
+  </div>
+
+  <h2>Research</h2>
+  <p>I am interested in computer vision models that learn without labels. More specifically, I am interested in methods that can learn universal image representations in an unsupervised manner. Currently, that work focuses on models based on diffusion and implicit neural representation (but mostly on INR)...</p>
+
+  <div class="paper">
+    <div class="paper-title">Evolutionary Caching to Accelerate Your Off-the-Shelf Diffusion Model</div>
+    <div class="authors">Anirud Aggarwal, Abhinav Shrivastava, Matthew Gwilliam</div>
+    <div><i>Submission Under Review, 2025</i></div>
+    <div class="resources">
+      <a href="#">Project Page</a>
+      <a href="#">Paper</a>
+      <a href="#">Code</a>
+    </div>
+    <p>A genetic algorithm that learns an optimal configuration for caching and reusing the inference computations...</p>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Accelerate High-Quality Diffusion Models with Inner Loop Feedback</div>
+    <div class="authors">Matthew Gwilliam, Han Cai, Di Wu, Abhinav Shrivastava, Zhiyu Cheng</div>
+    <div><i>Submission Under Review, 2025</i></div>
+    <div class="resources">
+      <a href="#">Project Page</a>
+      <a href="#">Paper</a>
+    </div>
+    <p>A novel lightweight feedback mechanism that creates a powerful inner loop...</p>
+  </div>
+
+  <!-- Add more papers here -->
+
 </body>
 </html>
