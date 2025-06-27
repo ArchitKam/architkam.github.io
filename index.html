@@ -2,7 +2,8 @@
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
 
-<!DOCTYPE html>  
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -38,17 +39,16 @@
       text-decoration: underline;
     }
     .profile {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+      /* removed flex here so text flows naturally */
+      overflow: hidden; /* to contain floated image */
     }
-.profile img {
-  width: 350px;
-  border-radius: 8px;
-  float: right;
-  margin: 20px 0 20px 20px;
-  display: block;
-}
+    .profile img {
+      width: 350px;
+      border-radius: 8px;
+      float: right;
+      margin: 20px 0 20px 20px; /* top, right, bottom, left */
+      display: block;
+    }
     .links {
       margin-top: 0.5rem;
     }
@@ -57,6 +57,7 @@
 <body>
 
   <div class="profile">
+    <img src="omsairam_profile.jpg" alt="Archit Kambhamettu">
     <div>
       <h1>Archit RamanaSai Kambhamettu</h1>
       <p>I am an incoming first-year Ph.D. student in <a href="https://www.cs.umd.edu/">Computer Science</a> at the University of Maryland (UMD), advised by <a href="https://www.cs.umd.edu/~abhinav/">Professor Abhinav Shrivastava</a>.</p>
@@ -68,10 +69,7 @@
         <a href="https://www.gmail.com">Email</a> / <a href="https://www.linkedin.com/in/archit-kambhamettu/">LinkedIn</a> / <a href="https://scholar.google.com/citations?user=80zBLRgAAAAJ&hl=en">Google Scholar</a>
       </div>
     </div>
-    <img src="omsairam_profile.jpg" alt="Archit Kambhamettu">
   </div>
-
-  
 
   <h2>Publications</h2>
   <ul>
@@ -114,18 +112,18 @@
   </ul>
 
   
-<h2>Some Fun Projects</h2>
-<ul>
-  <li>
-    <div class="paper-title"><i>HomeGrown Player Evaluation</i></div>
-    <div>Developed a methodology to determine whether teams that retain their players for more years yield a higher win rate. </div>
-  </li>
-  <li>
-    <div class="paper-title"><i>Free Throw Form Analysis</i></div>
-    <div>Recorded and leveraged pose estimation to analyze free throws from multiple viewpoints to determine whether free throw form affected whether the shot was missed or made.  </div></div>
-  </li>
-</ul>
-
+  <h2>Some Fun Projects</h2>
+  <ul>
+    <li>
+      <div class="paper-title"><i>HomeGrown Player Evaluation</i></div>
+      <div>Developed a methodology to determine whether teams that retain their players for more years yield a higher win rate. </div>
+    </li>
+    <li>
+      <div class="paper-title"><i>Free Throw Form Analysis</i></div>
+      <div>Recorded and leveraged pose estimation to analyze free throws from multiple viewpoints to determine whether free throw form affected whether the shot was missed or made.  </div>
+    </li>
+  </ul>
 
 </body>
 </html>
+
