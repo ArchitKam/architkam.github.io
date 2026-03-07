@@ -1,6 +1,7 @@
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam  -->
-<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
+<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam-->
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,251 +15,333 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Variables for easy theme management */
     :root {
-      --text-main: #333333;
-      --text-muted: #555555;
-      --accent-color: #e21833; /* UMD Red accent */
-      --accent-hover: #b51329;
-      --bg-color: #ffffff;
-      --border-color: #eaeaea;
+      --bg-main: #121212;
+      --bg-card: #1e1e1e;
+      --text-main: #ffffff;
+      --text-muted: #b3b3b3;
+      --umd-red: #e21833;
+      --umd-gold: #ffd200;
+      --border-color: #333333;
     }
 
-    /* Global Styles */
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 1.25rem; /* Increased font size for better readability */
       line-height: 1.7;
       color: var(--text-main);
-      background-color: var(--bg-color);
-      max-width: 850px;
+      background-color: var(--bg-main);
+      margin: 0;
+      padding: 0 0 4rem 0;
+    }
+
+    .container {
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 0 2rem;
     }
 
-    /* Typography */
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-      color: #111;
+    .md-stripe {
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(to right, 
+        var(--umd-red) 25%, 
+        #000000 25%, #000000 50%, 
+        var(--umd-gold) 50%, var(--umd-gold) 75%, 
+        #ffffff 75%);
     }
 
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
+    .hero-banner {
+      height: 250px;
+      width: 100%;
+      background-image: url('omsairam_banner.jpeg'); 
+      background-color: #2a2a2a; 
+      background-size: cover;
+      background-position: center;
       border-bottom: 1px solid var(--border-color);
-      color: #111;
     }
 
-    p {
-      margin-bottom: 1.25rem;
+    .top-nav-container {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
       color: var(--text-muted);
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-
-    /* Layout: Profile Section */
-    .profile-section {
-      display: flex;
-      align-items: flex-start;
-      gap: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .profile-image-container {
-      flex-shrink: 0;
-    }
-
-    .profile-image-container img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%; /* Circular profile pictures are very standard for academic sites */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .profile-content {
-      flex: 1;
-    }
-
-    /* Link Buttons */
-    .action-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .action-links a {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      color: var(--text-main);
-      font-size: 0.9rem;
+      padding: 1rem 0.5rem;
+      font-size: 1.15rem; /* Increased tab font size slightly */
+      font-family: inherit;
       font-weight: 500;
-      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
       transition: all 0.2s ease;
     }
 
-    .action-links a:hover {
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-      background-color: #fcfcfc;
-    }
+    .tab-btn:hover { color: var(--text-main); }
+    .tab-btn.active { color: var(--umd-gold); border-bottom: 3px solid var(--umd-red); font-weight: 600; }
 
-    /* Lists (Publications & Projects) */
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 1.5rem;
-    }
-
-    .pub-title {
-      font-weight: 600;
-      color: #111;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    .pub-authors {
-      color: var(--text-main);
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    .pub-venue {
-      color: var(--text-muted);
-      font-style: italic;
-      font-size: 0.95rem;
-    }
-
-    /* Honors List specifically */
-    .honors-list {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+    .profile-section { 
+      display: flex; 
+      gap: 3rem; 
+      align-items: flex-start; 
+      margin-top: 3rem; 
+      position: relative;
+      z-index: 10;
     }
     
-    .honors-list li {
-      margin-bottom: 0.5rem;
-      color: var(--text-muted);
+    .profile-image-container img { 
+      width: 240px; 
+      height: 240px; 
+      object-fit: cover; 
+      border-radius: 50%; 
+      border: 4px solid var(--umd-red); 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    /* Responsive Design for Mobile */
-    @media (max-width: 768px) {
-      .profile-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .profile-text-content {
+      margin-top: 0; 
+    }
+    
+    h1 { 
+      font-size: 2.4rem; /* Adjusted for overall scale */
+      font-weight: 700; 
+      color: #fff; 
+      margin-top: 0; 
+      margin-bottom: 0.5rem; 
+      line-height: 1.2; 
+      white-space: nowrap; 
+    }
+    
+    h2 { font-size: 1.9rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 3rem;}
+    p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    a { color: var(--umd-red); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--umd-gold); text-decoration: underline; }
+
+    .action-links { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .action-links a { padding: 0.75rem 1.5rem; border: 1px solid var(--umd-red); border-radius: 6px; color: var(--text-main); font-weight: 500; }
+    .action-links a:hover { background-color: var(--umd-red); color: #fff; text-decoration: none; }
+    
+    .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    ul { list-style-type: none; padding: 0; margin: 0; }
+    li { margin-bottom: 1.5rem; background-color: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); }
+    
+    .item-title { font-weight: 600; color: #fff; display: block; font-size: 1.4rem; margin-bottom: 0.25rem;}
+    .item-subtitle { color: var(--text-muted); font-size: 1.15rem; display: block; }
+    .item-desc { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; margin-bottom: 0; }
+
+    @media (max-width: 850px) {
+      .profile-section { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        margin-top: 2rem; 
+        gap: 1.5rem;
       }
-      
-      .action-links {
-        justify-content: center;
+      h1 {
+        white-space: normal; 
+        font-size: 2rem;
       }
+      .tab-nav { justify-content: flex-start; } 
     }
   </style>
 </head>
 <body>
 
-  <header class="profile-section">
-    <div class="profile-image-container">
-      <img src="omsairam_profile.jpg" alt="Archit Kambhamettu">
-    </div>
-    
-    <div class="profile-content">
-      <h1>Archit RamanaSai Kambhamettu</h1>
-      
-      <p>I am an incoming first-year Ph.D. student in <a href="https://www.cs.umd.edu/" target="_blank">Computer Science</a> at the University of Maryland (UMD), advised by <a href="https://www.cs.umd.edu/~abhinav/" target="_blank">Professor Abhinav Shrivastava</a> and <a href="https://www.zcliu.org/" target="_blank">Professor Leo Liu</a>.</p>
-      
-      <p>My research interests include deep learning and human-computer interaction for domain-specific reasoning and human intention monitoring. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
-      
-      <p>I completed my B.S. in Computer Science with a double major in Mathematics at UMD College Park. I am also a founding member of the <a href="https://www.rhsmith.umd.edu/programs/undergraduate/academics/specialty-programs/sports-management-program/meet-team" target="_blank">Schanwald Sports Management Program</a> at UMD! As an undergraduate, I was a member of the <a href="https://sph.umd.edu/research-impact/laboratories-projects-and-programs/neuromechanics-research-core" target="_blank">Neuromechanics Research Core</a> and the Perception and Intelligence Lab, where I worked on a wide variety of topics ranging from biomechanical analysis to quantifying NBA shot quality.</p>
-      
-      <p>Outside of courses and research, I love to play sports (primarily basketball), watch movies, and travel.</p>
-      
-      <div class="action-links">
-        <a href="mailto:architk@umd.edu">Email Me</a>
-        <a href="https://www.linkedin.com/in/archit-kambhamettu/" target="_blank">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=80zBLRgAAAAJ&hl=en" target="_blank">Google Scholar</a>
+  <div class="md-stripe"></div>
+
+  <div class="hero-banner"></div>
+
+  <div class="top-nav-container">
+    <nav class="tab-nav">
+      <button class="tab-btn active" onclick="openTab('about')">About Me</button>
+      <button class="tab-btn" onclick="openTab('publications')">Publications</button>
+      <button class="tab-btn" onclick="openTab('experience')">Work Experience</button>
+      <button class="tab-btn" onclick="openTab('honors')">Honors & Awards</button>
+      <button class="tab-btn" onclick="openTab('teaching')">Teaching</button>
+      <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+    </nav>
+  </div>
+
+  <main class="container">
+    <section id="about" class="tab-content active">
+      <div class="profile-section">
+        <div class="profile-image-container">
+          <img src="omsairam_profile.jpg" alt="Archit Kambhamettu">
+        </div>
+        <div class="profile-text-content">
+          <h1>Archit RamanaSai Kambhamettu</h1>
+          <p>I am an incoming Ph.D. student in Computer Science at the University of Maryland (UMD), advised by Professor Abhinav Shrivastava and Professor Leo Liu.</p>
+          <p>My research interests include deep learning and human-computer interaction for domain-specific reasoning and human intention monitoring. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
+          <p>I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.</p>
+          <div class="action-links">
+            <a href="mailto:architk@umd.edu">Email Me</a>
+            <a href="https://www.linkedin.com/in/archit-kambhamettu/" target="_blank">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=80zBLRgAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a href="https://planetterp.com/professor/kambhamettu" target="_blank">PlanetTerp</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main>
-    <section>
-      <h2>Selected Publications</h2>
+    <section id="publications" class="tab-content">
+      <h2>Publications</h2>
       <ul>
         <li>
-          <span class="pub-title">VidSole: A Multimodal Dataset for Joint Kinetics Quantification and Disease Detection with Deep Learning</span>
-          <span class="pub-authors"><strong>Archit Kambhamettu</strong>, Samantha Snyder, Maliheh Fakhar, Samuel Audia, Ross Miller, Jae Kun Shim, Aniket Bera</span>
-          <span class="pub-venue">2025 AAAI Conference on Artificial Intelligence (Accepted)</span>
+          <span class="item-title">Exploring and Mitigating Overconfidence in Models That are Smaller</span>
+          <span class="item-subtitle">Karan Jain, Alexander Chandy, <strong>Archit Kambhamettu</strong><br> <em>CHI 2026 Workshop: Bias4Trust</em></span>
         </li>
         <li>
-          <span class="pub-title">Walking with Sad and Happy Emotions Influences Risk Factors of Knee Osteoarthritis</span>
-          <span class="pub-authors">Samantha Snyder, SeungJun Oh, Elizabeth Bell, Hossein Ehsani, <strong>Archit Kambhamettu</strong>, Ross Miller, Aniket Bera, Jae Kun Shim</span>
-          <span class="pub-venue">2024 Journal of Biomechanics (Accepted)</span>
+          <span class="item-title">Practical Memorization Tests for Detecting Copyrighted Data in Large Language Models</span>
+          <span class="item-subtitle">Michael-Andrei Panaitescu-Liess, Aadi Palnitkar, <strong>Archit Kambhamettu</strong>, Yigitcan Kaya, Daniel Brown, Sungbin Oh, Sean Michael McLeish, Marco Bornstein, Furong Huang, Tom Goldstein <br> <em>preprint</em></span>
         </li>
         <li>
-          <span class="pub-title">Quantifying NBA Shot Quality: A Deep Network Approach</span>
-          <span class="pub-authors"><strong>Archit Kambhamettu</strong>, Matthew Gwilliam, Abhinav Shrivastava</span>
-          <span class="pub-venue">2024 ACM MMSports Workshop (Accepted)</span>
+          <span class="item-title">VidSole: A Multimodal Dataset for Joint Kinetics Quantification and Disease Detection with Deep Learning</span>
+          <span class="item-subtitle"><strong>Archit Kambhamettu</strong>, Samantha Snyder, Maliheh Fakhar, Samuel Audia, Ross Miller, Jae Kun Shim, Aniket Bera <br> <em>2025 AAAI Conference on Artificial Intelligence (Accepted)</em></span>
         </li>
         <li>
-          <span class="pub-title">Walking with Different Emotions Significantly Influences Knee Adduction Moment</span>
-          <span class="pub-authors">Samantha Snyder, SeungJun Oh, Elizabeth Bell, Hossein Ehsani, <strong>Archit Kambhamettu</strong>, Ross Miller, Aniket Bera, Jae Kun Shim</span>
-          <span class="pub-venue">2023 Medicine and Science in Sports and Exercise Journal (Accepted)</span>
+          <span class="item-title">Quantifying NBA Shot Quality: A Deep Network Approach</span>
+          <span class="item-subtitle"><strong>Archit Kambhamettu</strong>, Matthew Gwilliam, Abhinav Shrivastava <br> <em>2024 ACM MMSports Workshop (Accepted)</em></span>
         </li>
         <li>
-          <span class="pub-title">Classifying Walking and Running Using Custom Instrumented Insoles and Machine Learning</span>
-          <span class="pub-authors"><strong>Archit Kambhamettu</strong>, Samantha Snyder, Edward Chu, Yun Jung Heo, Jae Kun Shim</span>
-          <span class="pub-venue">2023 IEEE-EMBS International Conference on Body Sensor Networks (Accepted Poster)</span>
+          <span class="item-title">Walking with Sad and Happy Emotions Influences Risk Factors of Knee Osteoarthritis</span>
+          <span class="item-subtitle">Samantha Snyder, SeungJun Oh, Elizabeth Bell, Hossein Ehsani, <strong>Archit Kambhamettu</strong>, Ross Miller, Aniket Bera, Jae Kun Shim <br> <em>2024 Journal of Biomechanics (Accepted)</em></span>
         </li>
         <li>
-          <span class="pub-title">SAI: Sports Analytics and Informatics</span>
-          <span class="pub-authors"><strong>Archit Kambhamettu</strong>, Chandra Kambhamettu</span>
-          <span class="pub-venue">2020 Future Technologies Conference (Accepted)</span>
+          <span class="item-title">Poster: Classifying Walking and Running Using Custom Instrumented Insoles and Machine Learning</span>
+          <span class="item-subtitle"><strong>Archit Kambhamettu</strong>, Samantha Snyder, Edward Chu, Yun Jung Heo, Jae Kun Shim <br> <em>2023 IEEE-EMBS International Conference on Body Sensor Networks (Accepted)</em></span>
+        </li>
+        <li>
+          <span class="item-title">Walking with Different Emotions Significantly Influences Knee Adduction Moment</span>
+          <span class="item-subtitle">Samantha Snyder, Seung Jun Oh, Elizabeth Bell, Hossein Ehsani, <strong>Archit Kambhamettu</strong>, Ross Miller, Aniket Bera, Jae Kun Shim <br> <em>2023 Medicine and Science in Sports and Exercise Journal (Accepted)</em></span>
+        </li>
+        <li>
+          <span class="item-title">SAI: Sports Analytics and Informatics</span>
+          <span class="item-subtitle"><strong>Archit Kambhamettu</strong>, Chandra Kambhamettu <br> <em>2020 Future Technologies Conference (Accepted)</em></span>
         </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Honors and Awards</h2>
-      <ul class="honors-list">
-        <li>Dean’s Fellowship Recipient</li>
-        <li>Computer Science High Honors Graduate</li>
+    <section id="experience" class="tab-content">
+      <h2>Research & Industry Experience</h2>
+      <ul>
+        <li>
+          <span class="item-title">Undergraduate Researcher</span>
+          <span class="item-subtitle">UMD Neuromechanics Research Core, Perception and Intelligence Lab | Sep 2022 - May 2025</span>
+        </li>
+        <li>
+          <span class="item-title">Software Engineer</span>
+          <span class="item-subtitle">University of Maryland Athletics Department | Jan 2024 - Jan 2025</span>
+        </li>
+        <li>
+          <span class="item-title">Machine Learning Researcher</span>
+          <span class="item-subtitle">A.I. Whoo LLC | Oct 2021 - Dec 2023</span>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Selected Projects</h2>
+    <section id="honors" class="tab-content">
+      <h2>Honors & Awards</h2>
       <ul>
         <li>
-          <span class="pub-title">HomeGrown Player Evaluation</span>
-          <p>Developed a methodology to determine whether teams that retain their players for more years yield a higher win rate.</p>
+          <span class="item-title">Dean’s Fellowship</span>
+          <span class="item-subtitle">University of Maryland (Ph.D.)</span>
         </li>
         <li>
-          <span class="pub-title">Free Throw Form Analysis</span>
-          <p>Recorded and leveraged pose estimation to analyze free throws from multiple viewpoints to determine whether free throw form affected whether the shot was missed or made.</p>
+          <span class="item-title">Computer Science Departmental High Honors</span>
+          <span class="item-subtitle">University of Maryland (Undergrad)</span>
+        </li>
+        <li>
+          <span class="item-title">Cum Laude</span>
+          <span class="item-subtitle">University of Maryland (Undergrad)</span>
+        </li>
+          <li>
+          <span class="item-title">Dean's List</span>
+          <span class="item-subtitle">University of Maryland (Undergrad) </span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching" class="tab-content">
+      <h2>Teaching Experience</h2>
+      <ul>
+        <li>
+          <span class="item-title">Graduate Teaching Assistant</span>
+          <span class="item-subtitle">CMSC421: Intro to AI | Jan 2026 - Present</span>
+        </li>
+        <li>
+          <span class="item-title">Graduate Teaching Assistant</span>
+          <span class="item-subtitle">CMSC436: Programming Handheld Devices | Aug 2025 - Dec 2025</span>
+        </li>
+        <li>
+          <span class="item-title">I4C Computer Science Tutor</span>
+          <span class="item-subtitle">CMSC131, CMSC132, CMSC250, CMSC330, CMSC351 | Jan 2024 - May 2025</span>
+        </li>
+        <li>
+          <span class="item-title">I4C Guided Study Session Leader</span>
+          <span class="item-subtitle">CMSC330: Organization of Programming Languages | Jan 2024 - May 2025</span>
+        </li>
+        <li>
+          <span class="item-title">Undergraduate Teaching Assistant</span>
+          <span class="item-subtitle">CMSC250: Discrete Structures | Jan 2023 - Aug 2024</span>
+        </li>
+        <li>
+          <span class="item-title">Undergraduate Teaching Assistant</span>
+          <span class="item-subtitle">CMSC320: Intro to Data Science | Jan 2023 - Aug 2024</span>
+        </li>
+        <li>
+          <span class="item-title">Undergraduate Teaching Assistant</span>
+          <span class="item-subtitle">CMSC421: Intro to Artificial Intelligence | Jan 2023 - Aug 2024</span>
         </li>
       </ul>
     </section>
   </main>
 
+      <section id="projects" class="tab-content">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <span class="item-title">HomeGrown Player Evaluation</span>
+          <p class="item-desc">Developed a methodology to determine whether teams that retain their players for more years yield a higher win rate.</p>
+        </li>
+        <li>
+          <span class="item-title">Free Throw Form Analysis</span>
+          <p class="item-desc">Recorded and leveraged pose estimation to analyze free throws from multiple viewpoints to determine whether free throw form affected whether the shot was missed or made.</p>
+        </li>
+      </ul>
+    </section>
+
+  <script>
+    function openTab(tabName) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
