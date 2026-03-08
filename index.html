@@ -31,14 +31,19 @@
       --border-color: #333333;
     }
 
+    /* Enables smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 1.15rem; /* The 90% sweet spot for readability */
+      font-size: 1.15rem; /* The 90% sweet spot */
       line-height: 1.7;
       color: var(--text-main);
       background-color: var(--bg-main);
       margin: 0;
-      padding: 0 0 3rem 0;
+      padding: 0 0 5rem 0; /* Extra padding at bottom for smooth scrolling */
     }
 
     .container {
@@ -58,7 +63,7 @@
     }
 
     .hero-banner {
-      height: 220px; /* 90% Scale */
+      height: 220px;
       width: 100%;
       background-image: url('omsairam_banner.jpeg'); 
       background-color: #2a2a2a; 
@@ -75,6 +80,28 @@
       top: 0;
       z-index: 100;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* New CSS for the hidden sticky name */
+    .nav-name {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      opacity: 0;
+      max-height: 0;
+      transition: all 0.3s ease;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Class added via JavaScript when you scroll past the banner */
+    .nav-name.visible {
+      opacity: 1;
+      max-height: 40px; 
+      margin-top: 0.4rem;
     }
 
     .tab-nav {
@@ -89,11 +116,13 @@
     }
 
     .tab-btn {
+      display: inline-block;
+      text-decoration: none;
       background: transparent;
       border: none;
       color: var(--text-muted);
       padding: 0.9rem 0.4rem;
-      font-size: 1.1rem; /* 90% Scale */
+      font-size: 1.1rem;
       font-family: inherit;
       font-weight: 500;
       cursor: pointer;
@@ -104,9 +133,15 @@
     .tab-btn:hover { color: var(--text-main); }
     .tab-btn.active { color: var(--umd-gold); border-bottom: 3px solid var(--umd-red); font-weight: 600; }
 
+    .scroll-section {
+      margin-bottom: 4rem;
+      /* Increased to 120px to account for the new height of the sticky name */
+      scroll-margin-top: 120px; 
+    }
+
     .profile-section { 
       display: flex; 
-      gap: 2.8rem; /* 90% Scale */
+      gap: 2.8rem; 
       align-items: flex-start; 
       margin-top: 2.5rem; 
       position: relative;
@@ -114,7 +149,7 @@
     }
     
     .profile-image-container img { 
-      width: 220px; /* 90% Scale */
+      width: 220px; 
       height: 220px; 
       object-fit: cover; 
       border-radius: 50%; 
@@ -127,7 +162,7 @@
     }
     
     h1 { 
-      font-size: 2.15rem; /* 90% Scale */
+      font-size: 2.15rem; 
       font-weight: 700; 
       color: #fff; 
       margin-top: 0; 
@@ -139,7 +174,6 @@
     h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
     p { color: var(--text-muted); margin-bottom: 1.2rem; }
     
-    /* Make the bio text properly formatted for line breaks */
     .bio-text { white-space: pre-line; }
 
     a { color: var(--umd-red); text-decoration: none; transition: color 0.2s ease; }
@@ -149,10 +183,6 @@
     .action-links a { padding: 0.6rem 1.2rem; border: 1px solid var(--umd-red); border-radius: 6px; color: var(--text-main); font-weight: 500; }
     .action-links a:hover { background-color: var(--umd-red); color: #fff; text-decoration: none; }
     
-    .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
-    .tab-content.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
     ul { list-style-type: none; padding: 0; margin: 0; }
     li { margin-bottom: 1.25rem; background-color: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); }
     
@@ -183,18 +213,20 @@
   <div class="hero-banner"></div>
 
   <div class="top-nav-container">
+    <div class="nav-name" id="sticky-name">Archit RamanaSai Kambhamettu</div>
+    
     <nav class="tab-nav">
-      <button class="tab-btn active" onclick="openTab('about')">About Me</button>
-      <button class="tab-btn" onclick="openTab('publications')">Publications</button>
-      <button class="tab-btn" onclick="openTab('experience')">Work Experience</button>
-      <button class="tab-btn" onclick="openTab('honors')">Honors & Awards</button>
-      <button class="tab-btn" onclick="openTab('teaching')">Teaching</button>
-      <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+      <a href="#about" class="tab-btn active">About Me</a>
+      <a href="#publications" class="tab-btn">Publications</a>
+      <a href="#experience" class="tab-btn">Work Experience</a>
+      <a href="#honors" class="tab-btn">Honors & Awards</a>
+      <a href="#teaching" class="tab-btn">Teaching</a>
+      <a href="#projects" class="tab-btn">Projects</a>
     </nav>
   </div>
 
   <main class="container">
-    <section id="about" class="tab-content active">
+    <section id="about" class="scroll-section">
       <div class="profile-section">
         <div class="profile-image-container">
           <img src="omsairam_profile.jpg" alt="Archit Kambhamettu">
@@ -205,7 +237,7 @@
           <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain-specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
           <p class="bio-text">I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.
 
-            Feel free to reach out to me for research collaborations! My email is architk@umd.edu. 
+            Feel free to reach out to me for any collaborations! My email is architk@umd.edu. 
           </p>
           <div class="action-links">
             <a href="mailto:architk@umd.edu">Email</a>
@@ -217,7 +249,7 @@
       </div>
     </section>
 
-    <section id="publications" class="tab-content">
+    <section id="publications" class="scroll-section">
       <h2>Selected Publications</h2>
       <ul>
         <li>
@@ -255,7 +287,7 @@
       </ul>
     </section>
 
-    <section id="experience" class="tab-content">
+    <section id="experience" class="scroll-section">
       <h2>Research & Industry Experience</h2>
       <ul>
         <li>
@@ -273,7 +305,7 @@
       </ul>
     </section>
 
-    <section id="honors" class="tab-content">
+    <section id="honors" class="scroll-section">
       <h2>Honors & Awards</h2>
       <ul>
         <li>
@@ -295,7 +327,7 @@
       </ul>
     </section>
 
-    <section id="teaching" class="tab-content">
+    <section id="teaching" class="scroll-section">
       <h2>Teaching Experience</h2>
       <ul>
         <li>
@@ -329,7 +361,7 @@
       </ul>
     </section>
 
-    <section id="projects" class="tab-content">
+    <section id="projects" class="scroll-section">
       <h2>Projects</h2>
       <ul>
         <li>
@@ -346,16 +378,41 @@
   </main>
 
   <script>
-    function openTab(tabName) {
-      const contents = document.querySelectorAll('.tab-content');
-      contents.forEach(content => content.classList.remove('active'));
+    const sections = document.querySelectorAll('.scroll-section');
+    const navLinks = document.querySelectorAll('.tab-btn');
+    const stickyName = document.getElementById('sticky-name');
 
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      // Calculate which section we are in
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= (sectionTop - 180)) {
+          current = section.getAttribute('id');
+        }
+      });
 
-      document.getElementById(tabName).classList.add('active');
-      event.currentTarget.classList.add('active');
-    }
+      // MAGIC FIX: If we scroll to the absolute bottom of the page, force "projects" to be active
+      if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+        current = 'projects';
+      }
+
+      // Update the red underline on the tabs
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+
+      // MAGIC FIX 2: Show name in header only when scrolled past the banner and bio image (e.g., 250px)
+      if (window.scrollY > 250) {
+        stickyName.classList.add('visible');
+      } else {
+        stickyName.classList.remove('visible');
+      }
+    });
   </script>
 </body>
 </html>
