@@ -38,6 +38,7 @@
       --hero-fallback: #2a2a2a;
       --profile-border: #ffffff;
       --theme-toggle-bg: transparent;
+      --section-scroll-offset: 140px;
     }
 
     [data-theme="light"] {
@@ -184,7 +185,7 @@
 
     .scroll-section {
       margin-bottom: 7rem; 
-      scroll-margin-top: 120px; 
+      scroll-margin-top: var(--section-scroll-offset); 
     }
 
     .profile-section { 
@@ -458,7 +459,15 @@
     const sections = document.querySelectorAll('.scroll-section');
     const navLinks = document.querySelectorAll('.tab-btn');
     const stickyName = document.getElementById('sticky-name');
+    const topNavContainer = document.querySelector('.top-nav-container');
     const themeToggle = document.getElementById('theme-toggle');
+
+    const setSectionScrollOffset = () => {
+      const navHeight = topNavContainer ? topNavContainer.offsetHeight : 120;
+      document.documentElement.style.setProperty('--section-scroll-offset', `${navHeight + 24}px`);
+    };
+
+    setSectionScrollOffset();
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
@@ -480,12 +489,30 @@
       }
     });
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-      
+    const updateActiveTab = () => {
+      if (window.scrollY > 300) {
+        stickyName.classList.add('visible');
+      } else {
+        stickyName.classList.remove('visible');
+      }
+
+      setSectionScrollOffset();
+
+      const navHeight = topNavContainer ? topNavContainer.offsetHeight : 120;
+      const markerOffset = navHeight + 24;
+      const scrollMarker = window.scrollY + markerOffset;
+      let current = sections[0]?.getAttribute('id') || '';
+      const nearBoundaryPx = 80;
+
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= (sectionTop - 180)) {
+        const deltaFromMarker = sectionTop - scrollMarker;
+
+        if (scrollMarker >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+
+        if (deltaFromMarker > 0 && deltaFromMarker <= nearBoundaryPx) {
           current = section.getAttribute('id');
         }
       });
@@ -496,17 +523,15 @@
 
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        if (link.getAttribute('href') === `#${current}`) {
           link.classList.add('active');
         }
       });
+    };
 
-      if (window.scrollY > 300) {
-        stickyName.classList.add('visible');
-      } else {
-        stickyName.classList.remove('visible');
-      }
-    });
+    window.addEventListener('scroll', updateActiveTab);
+    window.addEventListener('resize', updateActiveTab);
+    updateActiveTab();
   </script>
 </body>
 </html>
