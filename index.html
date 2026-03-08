@@ -1,15 +1,20 @@
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam  -->
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam-->
-<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
-
+<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Archit Kambhamettu - Ph.D. Student in Computer Science at UMD">
-  <link rel="icon" type="image/png" href="omsairam_maryland.avif">
   <title>Archit Kambhamettu</title>
+  
+  <link rel="icon" type="image/png" href="omsairam_maryland.avif">
+
+  <meta property="og:title" content="Archit Kambhamettu - Ph.D. Student">
+  <meta property="og:description" content="Computer Science Ph.D. student at the University of Maryland researching deep learning and human-computer interaction in sports analytics.">
+  <meta property="og:image" content="omsairam_banner.jpeg">
+  <meta property="og:type" content="website">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +33,12 @@
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 1.25rem; /* Increased font size for better readability */
+      font-size: 1.15rem; /* The 90% sweet spot for readability */
       line-height: 1.7;
       color: var(--text-main);
       background-color: var(--bg-main);
       margin: 0;
-      padding: 0 0 4rem 0;
+      padding: 0 0 3rem 0;
     }
 
     .container {
@@ -53,7 +58,7 @@
     }
 
     .hero-banner {
-      height: 250px;
+      height: 220px; /* 90% Scale */
       width: 100%;
       background-image: url('omsairam_banner.jpeg'); 
       background-color: #2a2a2a; 
@@ -65,17 +70,17 @@
     .top-nav-container {
       background-color: var(--bg-card);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.5rem 0;
+      padding: 0.4rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
     .tab-nav {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 1rem;
@@ -87,8 +92,8 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 1rem 0.5rem;
-      font-size: 1.15rem; /* Increased tab font size slightly */
+      padding: 0.9rem 0.4rem;
+      font-size: 1.1rem; /* 90% Scale */
       font-family: inherit;
       font-weight: 500;
       cursor: pointer;
@@ -101,20 +106,20 @@
 
     .profile-section { 
       display: flex; 
-      gap: 3rem; 
+      gap: 2.8rem; /* 90% Scale */
       align-items: flex-start; 
-      margin-top: 3rem; 
+      margin-top: 2.5rem; 
       position: relative;
       z-index: 10;
     }
     
     .profile-image-container img { 
-      width: 240px; 
-      height: 240px; 
+      width: 220px; /* 90% Scale */
+      height: 220px; 
       object-fit: cover; 
       border-radius: 50%; 
       border: 4px solid var(--umd-red); 
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
     .profile-text-content {
@@ -122,22 +127,26 @@
     }
     
     h1 { 
-      font-size: 2.4rem; /* Adjusted for overall scale */
+      font-size: 2.15rem; /* 90% Scale */
       font-weight: 700; 
       color: #fff; 
       margin-top: 0; 
-      margin-bottom: 0.5rem; 
+      margin-bottom: 0.4rem; 
       line-height: 1.2; 
       white-space: nowrap; 
     }
     
-    h2 { font-size: 1.9rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 3rem;}
-    p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
+    p { color: var(--text-muted); margin-bottom: 1.2rem; }
+    
+    /* Make the bio text properly formatted for line breaks */
+    .bio-text { white-space: pre-line; }
+
     a { color: var(--umd-red); text-decoration: none; transition: color 0.2s ease; }
     a:hover { color: var(--umd-gold); text-decoration: underline; }
 
-    .action-links { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .action-links a { padding: 0.75rem 1.5rem; border: 1px solid var(--umd-red); border-radius: 6px; color: var(--text-main); font-weight: 500; }
+    .action-links { display: flex; gap: 0.9rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .action-links a { padding: 0.6rem 1.2rem; border: 1px solid var(--umd-red); border-radius: 6px; color: var(--text-main); font-weight: 500; }
     .action-links a:hover { background-color: var(--umd-red); color: #fff; text-decoration: none; }
     
     .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
@@ -145,10 +154,10 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
     ul { list-style-type: none; padding: 0; margin: 0; }
-    li { margin-bottom: 1.5rem; background-color: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); }
+    li { margin-bottom: 1.25rem; background-color: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); }
     
-    .item-title { font-weight: 600; color: #fff; display: block; font-size: 1.4rem; margin-bottom: 0.25rem;}
-    .item-subtitle { color: var(--text-muted); font-size: 1.15rem; display: block; }
+    .item-title { font-weight: 600; color: #fff; display: block; font-size: 1.3rem; margin-bottom: 0.25rem;}
+    .item-subtitle { color: var(--text-muted); font-size: 1.1rem; display: block; }
     .item-desc { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; margin-bottom: 0; }
 
     @media (max-width: 850px) {
@@ -192,9 +201,9 @@
         </div>
         <div class="profile-text-content">
           <h1>Archit RamanaSai Kambhamettu</h1>
-          <p>I am a first year Computer Science Ph.D. student at the University of Maryland (UMD), advised by Professor Abhinav Shrivastava and Professor Leo Liu.</p>
-          <p>My research interests are in intersection of Human Computer Interaction and Computer Vision, primraly with developing novel approaches for domain specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
-          <p>I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.
+          <p>I am a first-year Computer Science Ph.D. student at the University of Maryland (UMD), advised by Professor Abhinav Shrivastava and Professor Leo Liu.</p>
+          <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain-specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
+          <p class="bio-text">I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.
 
             Feel free to reach out to me for research collaborations! My email is architk@umd.edu. 
           </p>
@@ -319,9 +328,8 @@
         </li>
       </ul>
     </section>
-  </main>
 
-      <section id="projects" class="tab-content">
+    <section id="projects" class="tab-content">
       <h2>Projects</h2>
       <ul>
         <li>
@@ -334,6 +342,8 @@
         </li>
       </ul>
     </section>
+
+  </main>
 
   <script>
     function openTab(tabName) {
