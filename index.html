@@ -38,12 +38,12 @@
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 1.15rem; /* The 90% sweet spot */
+      font-size: 1.15rem; 
       line-height: 1.7;
       color: var(--text-main);
       background-color: var(--bg-main);
       margin: 0;
-      padding: 0 0 5rem 0; /* Extra padding at bottom for smooth scrolling */
+      padding: 0 0 5rem 0; 
     }
 
     .container {
@@ -63,7 +63,7 @@
     }
 
     .hero-banner {
-      height: 220px;
+      height: 200px; /* Restored size to push content down */
       width: 100%;
       background-image: url('omsairam_banner.jpeg'); 
       background-color: #2a2a2a; 
@@ -85,7 +85,6 @@
       align-items: center;
     }
 
-    /* New CSS for the hidden sticky name */
     .nav-name {
       color: #fff;
       font-weight: 700;
@@ -97,7 +96,6 @@
       overflow: hidden;
     }
 
-    /* Class added via JavaScript when you scroll past the banner */
     .nav-name.visible {
       opacity: 1;
       max-height: 40px; 
@@ -134,8 +132,7 @@
     .tab-btn.active { color: var(--umd-gold); border-bottom: 3px solid var(--umd-red); font-weight: 600; }
 
     .scroll-section {
-      margin-bottom: 4rem;
-      /* Increased to 120px to account for the new height of the sticky name */
+      margin-bottom: 6rem; /* Significantly increased to create a clear visual break before Publications */
       scroll-margin-top: 120px; 
     }
 
@@ -149,8 +146,8 @@
     }
     
     .profile-image-container img { 
-      width: 220px; 
-      height: 220px; 
+      width: 240px; /* Restored size */
+      height: 240px; 
       object-fit: cover; 
       border-radius: 50%; 
       border: 4px solid var(--umd-red); 
@@ -166,13 +163,13 @@
       font-weight: 700; 
       color: #fff; 
       margin-top: 0; 
-      margin-bottom: 0.4rem; 
+      margin-bottom: 0.6rem; 
       line-height: 1.2; 
       white-space: nowrap; 
     }
     
-    h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
-    p { color: var(--text-muted); margin-bottom: 1.2rem; }
+    h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
+    p { color: var(--text-muted); margin-bottom: 1.6rem; /* Increased spacing to stretch the bio slightly */ }
     
     .bio-text { white-space: pre-line; }
 
@@ -184,7 +181,7 @@
     .action-links a:hover { background-color: var(--umd-red); color: #fff; text-decoration: none; }
     
     ul { list-style-type: none; padding: 0; margin: 0; }
-    li { margin-bottom: 1.25rem; background-color: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); }
+    li { margin-bottom: 1.5rem; background-color: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); }
     
     .item-title { font-weight: 600; color: #fff; display: block; font-size: 1.3rem; margin-bottom: 0.25rem;}
     .item-subtitle { color: var(--text-muted); font-size: 1.1rem; display: block; }
@@ -406,8 +403,8 @@
         }
       });
 
-      // MAGIC FIX 2: Show name in header only when scrolled past the banner and bio image (e.g., 250px)
-      if (window.scrollY > 250) {
+      // Updated tracking height since the banner is taller now (300px instead of 250px)
+      if (window.scrollY > 300) {
         stickyName.classList.add('visible');
       } else {
         stickyName.classList.remove('visible');
