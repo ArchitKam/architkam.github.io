@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="omsairam_maryland.png">
 
   <meta property="og:title" content="Archit Kambhamettu - Ph.D. Student">
-  <meta property="og:description" content="Computer Science Ph.D. student at the University of Maryland.">
+  <meta property="og:description" content="Computer Science Ph.D. student at the University of Maryland researching deep learning and human-computer interaction in sports analytics.">
   <meta property="og:image" content="omsairam_banner.jpeg">
   <meta property="og:type" content="website">
   
@@ -63,7 +63,7 @@
     }
 
     .hero-banner {
-      height: 200px; /* Restored size to push content down */
+      height: 250px; 
       width: 100%;
       background-image: url('omsairam_banner.jpeg'); 
       background-color: #2a2a2a; 
@@ -111,6 +111,11 @@
       padding: 0 1rem;
       white-space: nowrap;
       overflow-x: auto;
+      /* Hides scrollbar for cleaner look on mobile while keeping functionality */
+      scrollbar-width: none; 
+    }
+    .tab-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .tab-btn {
@@ -132,7 +137,7 @@
     .tab-btn.active { color: var(--umd-gold); border-bottom: 3px solid var(--umd-red); font-weight: 600; }
 
     .scroll-section {
-      margin-bottom: 6rem; /* Significantly increased to create a clear visual break before Publications */
+      margin-bottom: 7rem; 
       scroll-margin-top: 120px; 
     }
 
@@ -146,11 +151,11 @@
     }
     
     .profile-image-container img { 
-      width: 240px; /* Restored size */
+      width: 240px; 
       height: 240px; 
       object-fit: cover; 
       border-radius: 50%; 
-      border: 4px solid var(--umd-red); 
+      border: 4px solid #ffffff; /* Changed to white */
       box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
@@ -169,7 +174,7 @@
     }
     
     h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
-    p { color: var(--text-muted); margin-bottom: 1.6rem; /* Increased spacing to stretch the bio slightly */ }
+    p { color: var(--text-muted); margin-bottom: 1.6rem; }
     
     .bio-text { white-space: pre-line; }
 
@@ -187,19 +192,46 @@
     .item-subtitle { color: var(--text-muted); font-size: 1.1rem; display: block; }
     .item-desc { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; margin-bottom: 0; }
 
+    /* MOBILE OPTIMIZATIONS */
     @media (max-width: 850px) {
+      .container {
+        padding: 0 1rem; 
+      }
+      .hero-banner {
+        height: 150px; 
+      }
       .profile-section { 
         flex-direction: column; 
         align-items: center; 
         text-align: center; 
-        margin-top: 2rem; 
+        margin-top: 1.5rem; 
         gap: 1.5rem;
+      }
+      .profile-image-container img {
+        width: 180px; 
+        height: 180px;
       }
       h1 {
         white-space: normal; 
-        font-size: 2rem;
+        font-size: 1.85rem;
       }
-      .tab-nav { justify-content: flex-start; } 
+      .nav-name {
+        font-size: 1.1rem; 
+      }
+      .action-links {
+        justify-content: center; 
+      }
+      .tab-nav { 
+        justify-content: flex-start; 
+        gap: 0.8rem;
+      }
+      .tab-btn {
+        padding: 0.8rem 0.5rem;
+        font-size: 1rem;
+      }
+      .scroll-section {
+        margin-bottom: 4rem; 
+      }
     }
   </style>
 </head>
@@ -231,9 +263,8 @@
         <div class="profile-text-content">
           <h1>Archit RamanaSai Kambhamettu</h1>
           <p>I am a first-year Computer Science Ph.D. student at the University of Maryland (UMD), advised by Professor Abhinav Shrivastava and Professor Leo Liu.</p>
-          <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
-          <p class="bio-text">I completed my B.S. in Computer Science (Machine Learning) with a double major in Mathematics (Statistics). I am also a founding member of UMD's Sports Management Program. 
-            
+          <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain-specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
+          <p class="bio-text">I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.
 
             Feel free to reach out to me for any collaborations! My email is architk@umd.edu. 
           </p>
@@ -383,7 +414,6 @@
     window.addEventListener('scroll', () => {
       let current = '';
       
-      // Calculate which section we are in
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (pageYOffset >= (sectionTop - 180)) {
@@ -391,12 +421,10 @@
         }
       });
 
-      // MAGIC FIX: If we scroll to the absolute bottom of the page, force "projects" to be active
       if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
         current = 'projects';
       }
 
-      // Update the red underline on the tabs
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(current)) {
@@ -404,7 +432,6 @@
         }
       });
 
-      // Updated tracking height since the banner is taller now (300px instead of 250px)
       if (window.scrollY > 300) {
         stickyName.classList.add('visible');
       } else {
