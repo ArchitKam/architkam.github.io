@@ -1,5 +1,5 @@
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam  -->
-<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam-->
+<!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam -->
 <!-- omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam omsairam-->
 
 
@@ -28,9 +28,31 @@
       --bg-card: #1e1e1e;
       --text-main: #ffffff;
       --text-muted: #b3b3b3;
+      --text-strong: #ffffff;
       --umd-red: #e21833;
       --umd-gold: #ffd200;
+      --highlight-text: #ffd200;
+      --active-underline: #e21833;
       --border-color: #333333;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --hero-fallback: #2a2a2a;
+      --profile-border: #ffffff;
+      --theme-toggle-bg: transparent;
+    }
+
+    [data-theme="light"] {
+      --bg-main: #ffffff;
+      --bg-card: #f6f7f9;
+      --text-main: #111111;
+      --text-muted: #444444;
+      --text-strong: #111111;
+      --border-color: #dddddd;
+      --shadow-color: rgba(0, 0, 0, 0.08);
+      --hero-fallback: #e8e8e8;
+      --profile-border: #ffffff;
+      --theme-toggle-bg: #ffffff;
+      --highlight-text: #e21833;
+      --active-underline: #ffd200;
     }
 
     /* Enables smooth scrolling */
@@ -68,7 +90,7 @@
       height: 250px; 
       width: 100%;
       background-image: url('omsairam_banner.jpeg'); 
-      background-color: #2a2a2a; 
+      background-color: var(--hero-fallback); 
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid var(--border-color);
@@ -81,7 +103,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 10px var(--shadow-color);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -89,7 +111,7 @@
     }
 
     .nav-name {
-      color: #fff;
+      color: var(--text-strong);
       font-weight: 700;
       font-size: 1.25rem;
       opacity: 0;
@@ -140,7 +162,25 @@
     }
 
     .tab-btn:hover { color: var(--text-main); }
-    .tab-btn.active { color: var(--umd-gold); border-bottom: 3px solid var(--umd-red); font-weight: 600; }
+    .tab-btn.active { color: var(--highlight-text); border-bottom: 3px solid var(--active-underline); font-weight: 600; }
+
+    .theme-toggle {
+      margin-top: 0.45rem;
+      margin-bottom: 0.3rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--theme-toggle-bg);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--umd-red);
+    }
 
     .scroll-section {
       margin-bottom: 7rem; 
@@ -161,7 +201,7 @@
       height: 240px; 
       object-fit: cover; 
       border-radius: 50%; 
-      border: 4px solid #ffffff; 
+      border: 4px solid var(--profile-border); 
       box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     }
 
@@ -172,29 +212,29 @@
     h1 { 
       font-size: 2.15rem; 
       font-weight: 700; 
-      color: #fff; 
+      color: var(--text-strong); 
       margin-top: 0; 
       margin-bottom: 0.6rem; 
       line-height: 1.2; 
       white-space: nowrap; 
     }
     
-    h2 { font-size: 1.75rem; font-weight: 600; color: var(--umd-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
+    h2 { font-size: 1.75rem; font-weight: 600; color: var(--highlight-text); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; margin-top: 2.5rem;}
     p { color: var(--text-muted); margin-bottom: 1.6rem; }
     
     .bio-text { white-space: pre-line; }
 
     a { color: var(--umd-red); text-decoration: none; transition: color 0.2s ease; }
-    a:hover { color: var(--umd-gold); text-decoration: underline; }
+    a:hover { color: var(--highlight-text); text-decoration: underline; }
 
     .action-links { display: flex; gap: 0.9rem; margin-top: 1.5rem; flex-wrap: wrap; }
     .action-links a { padding: 0.6rem 1.2rem; border: 1px solid var(--umd-red); border-radius: 6px; color: var(--text-main); font-weight: 500; }
-    .action-links a:hover { background-color: var(--umd-red); color: #fff; text-decoration: none; }
+    .action-links a:hover { background-color: var(--umd-red); color: #ffffff; text-decoration: none; }
     
     ul { list-style-type: none; padding: 0; margin: 0; }
     li { margin-bottom: 1.5rem; background-color: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); }
     
-    .item-title { font-weight: 600; color: #fff; display: block; font-size: 1.3rem; margin-bottom: 0.25rem;}
+    .item-title { font-weight: 600; color: var(--text-strong); display: block; font-size: 1.3rem; margin-bottom: 0.25rem;}
     .item-subtitle { color: var(--text-muted); font-size: 1.1rem; display: block; }
     .item-desc { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; margin-bottom: 0; }
 
@@ -250,6 +290,7 @@
 
   <div class="top-nav-container">
     <div class="nav-name" id="sticky-name">Archit RamanaSai Kambhamettu</div>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">☀️ Light mode</button>
     
     <nav class="tab-nav">
       <a href="#about" class="tab-btn active">About Me</a>
@@ -270,9 +311,9 @@
         <div class="profile-text-content">
           <h1>Archit RamanaSai Kambhamettu</h1>
           <p>I am a first-year Computer Science Ph.D. student at the University of Maryland (UMD), advised by Professor Abhinav Shrivastava and Professor Leo Liu.</p>
-          <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain-specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
-          <p class="bio-text">I completed my B.S. in Computer Science with a double major in Mathematics and a notation in Sports Management at UMD College Park.
-
+          <p>My research interests are at the intersection of Human-Computer Interaction and Computer Vision, primarily with developing novel approaches for domain specific reasoning to assist field experts. I am particularly interested in applying this line of research to sports analytics and biomechanics.</p>
+          <p class="bio-text">I completed my B.S. in Computer Science (Machine Learning) with a double major in Mathematics (Statistics). I am also a founding member of UMD's Sports Management Program. 
+            
             Feel free to reach out to me for any collaborations! My email is architk@umd.edu. 
           </p>
           <div class="action-links">
@@ -417,6 +458,27 @@
     const sections = document.querySelectorAll('.scroll-section');
     const navLinks = document.querySelectorAll('.tab-btn');
     const stickyName = document.getElementById('sticky-name');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeToggle.textContent = '🌙 Dark mode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Light mode';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Dark mode';
+      }
+    });
 
     window.addEventListener('scroll', () => {
       let current = '';
